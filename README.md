@@ -1,1 +1,1 @@
-Personal project for creating a organized database system for my previous job
+Personal project for creating an organized database system for my previous job
