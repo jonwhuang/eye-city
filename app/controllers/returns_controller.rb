@@ -7,8 +7,16 @@ class ReturnsController < ApplicationController
     @returns = Return.all
   end
 
+  def show
+    @return = Return.find(params[:id])
+  end
+
   def new
     @return = Return.new
+  end
+
+  def edit
+    @return = Return.find(params[:id])
   end
 
   def create
@@ -20,6 +28,24 @@ class ReturnsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def update
+    @return = Return.find(params[:id])
+
+    if @return.update(return_params)
+      flash[:notice] = "Return successfully updated"
+      redirect_to home_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @return = Return.find(params[:id])
+    @return.destroy
+    flash[:notice] = "Return successfully deleted"
+    redirect_to home_path
   end
 
   private

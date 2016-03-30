@@ -1,0 +1,38 @@
+<div class="form-container">
+  <%= form_for @return do |f| %>
+    <div class="form-group">
+      <%= f.label :manufacturer %>
+      <%= f.collection_select(:manufacturer_id, Manufacturer.all, :id, :name) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :brand %>
+      <%= f.collection_select(:brand_id, Brand.all, :id, :name) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :frame_count %>
+      <%= f.number_field :frame_count, step: 1 %>
+    </div>
+    <div class="form-group">
+      <%= f.label :return_authorization_number %>
+      <%= f.text_field :auth_number %>
+    </div>
+    <div class="form-group">
+      <%= f.label :return_authorization_date %>
+      <%= f.date_field :return_date %>
+    </div>
+    <div class="form-group">
+      <%= f.label :credit_memo_number %>
+      <%= f.text_field :credit_memo_number %>
+    </div>
+    <div class="form-group">
+      <%= f.label :credit_memo_date %>
+      <%= f.date_field :paid_date %>
+    </div>
+    <div class="form-group">
+      <%= f.label :comments %>
+      <%= f.text_area :comments %>
+    </div>
+
+    <%= f.submit "Submit", class: "btn btn-primary-outline" %>
+  <% end %>
+</div>
