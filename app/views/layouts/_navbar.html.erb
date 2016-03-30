@@ -15,10 +15,10 @@
       <% if current_admin %>
         <ul class="nav navbar-nav">
           <li class="active">
-            <a href="../index.html">Overview</a>
+            <%= link_to "Overview", home_path %>
           </li>
           <li >
-            <a href="../order-history/index.html">New Return</a>
+            <%= link_to "New Return", new_return_path %>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

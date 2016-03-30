@@ -6,4 +6,7 @@ class ReturnsController < ApplicationController
     end
   end
 
+  def new
+    @return = Return.new
+  end
 end

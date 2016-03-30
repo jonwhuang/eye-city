@@ -5,14 +5,28 @@
     </div>
 
   </div>
-  <div class="flextable table-actions">
+<!--   <div class="flextable table-actions">
     <div class="flextable-item flextable-primary">
       <div class="btn-toolbar-item input-with-icon pull-left">
         <input type="text" class="form-control input-block" placeholder="Search returns">
         <span class="icon icon-magnifying-glass"></span>
       </div>
     </div>
-  </div>
+  </div> -->
+  <select class="custom-select custom-select-sm">
+    <option>Filter By Manufacturer</option>
+    <option>Marchon</option>
+    <option>Luxottica</option>
+    <option>Marcolin</option>
+  </select>
+
+  <select class="custom-select custom-select-sm">
+    <option>Filter By Brand</option>
+    <option>Calvin Klein</option>
+    <option>Nike</option>
+    <option>Ray Ban</option>
+    <option>Tom Ford</option>
+  </select>
 
   <ul class="nav nav-bordered m-b-0" role="tablist">
     <li class="active" role="presentation">
@@ -22,7 +36,7 @@
       <a href="#all" role="tab" data-toggle="tab" aria-controls="all">All Returns</a>
     </li>
     <li role="presentation">
-      <a href="#search" role="tab" data-toggle="tab" aria-controls="search">Search Results</a>
+      <a href="#filter" role="tab" data-toggle="tab" aria-controls="filter">Filtered Results</a>
     </li>
   </ul>
 
@@ -109,7 +123,7 @@
     <div role="tabpanel" class="tab-pane" id="all">
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="search">
+    <div role="tabpanel" class="tab-pane" id="filter">
     </div>
   </div>
 

@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   end
 
   resources :manufacturers
-  resources :brands do
-    resources :returns, shallow: true
-  end
+  # resources :brands do
+  #   resources :returns, shallow: true
+  # end
+  resources :brands
+  resources :returns
 
   get '/home' => 'returns#home'
 end
