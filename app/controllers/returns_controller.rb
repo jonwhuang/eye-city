@@ -51,6 +51,6 @@ class ReturnsController < ApplicationController
   private
 
   def return_params
-    params.require(:return).permit(:auth_number, :return_date, :paid_date, :credit_memo_number, :brand_id, :manufacturer_id, :frame_count, :comments)
+    params.require(:return).permit(:auth_number, :return_date, :credit_date, :credit_memo_number, :brand_id, :manufacturer_id, :frame_count, :comments)
   end
 end
