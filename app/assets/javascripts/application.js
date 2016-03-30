@@ -20,6 +20,8 @@ $(document).ready(function() {
   $("[data-sort=table]").tablesorter({
     sortList: [[3,0]]
   });
+
 });
+
 
 
