@@ -9,4 +9,8 @@ class ReturnsController < ApplicationController
   def new
     @return = Return.new
   end
+
+  def create
+
+  end
 end

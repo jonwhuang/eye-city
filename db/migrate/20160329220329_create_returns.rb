@@ -6,6 +6,7 @@ class CreateReturns < ActiveRecord::Migration
       t.date :paid_date
       t.string :credit_memo_number
       t.integer :brand_id
+      t.integer :manufacturer_id
       t.integer :frame_count
       t.string :comments
 
