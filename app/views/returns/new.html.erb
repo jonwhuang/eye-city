@@ -28,6 +28,10 @@
       <%= f.label :credit_memo_date %>
       <%= f.date_field :paid_date %>
     </div>
+    <div class="form-group">
+      <%= f.label :comments %>
+      <%= f.text_area :comments %>
+    </div>
 
     <%= f.submit "Submit", class: "btn btn-primary-outline" %>
   <% end %>
