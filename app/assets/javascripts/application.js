@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  // call the tablesorter plugin
+  $("[data-sort=table]").tablesorter({
+    // Sort on the second column, in ascending order
+    sortList: [[1,0]]
+  });
+});
