@@ -4,6 +4,7 @@ class ReturnsController < ApplicationController
     if !current_admin
       redirect_to new_admin_session_path
     end
+    @returns = Return.all
   end
 
   def new
@@ -20,9 +21,6 @@ class ReturnsController < ApplicationController
       render 'new'
     end
   end
-
-
-
 
   private
 

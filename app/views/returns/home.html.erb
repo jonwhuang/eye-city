@@ -58,61 +58,27 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Marchon</td>
-              <td>Calvin Klein</td>
-              <td>5</td>
-              <td><a href="#">2394239</a></td>
-              <td>01/28/2016</td>
-              <td>46929234</td>
-              <td>03/28/2016</td>
-              <td><a href="#"><span class="icon icon-pencil"></span></a></td>
-              <td><a href="#"><span class="icon icon-trash"></span></a></td>
-            </tr>
-            <tr>
-              <td>Marchon</td>
-              <td>Calvin Klein</td>
-              <td>5</td>
-              <td><a href="#">2394239</a></td>
-              <td>01/28/2016</td>
-              <td>46929234</td>
-              <td>03/28/2016</td>
-              <td><a href="#"><span class="icon icon-pencil"></span></a></td>
-              <td><a href="#"><span class="icon icon-trash"></span></a></td>
-            </tr>
-            <tr>
-              <td>Marchon</td>
-              <td>Calvin Klein</td>
-              <td>4</td>
-              <td><a href="#">2394239</a></td>
-              <td>01/28/2016</td>
-              <td>46929234</td>
-              <td>03/28/2016</td>
-              <td><a href="#"><span class="icon icon-pencil"></span></a></td>
-              <td><a href="#"><span class="icon icon-trash"></span></a></td>
-            </tr>
-            <tr>
-              <td>Marchon</td>
-              <td>Calvin Klein</td>
-              <td>2</td>
-              <td><a href="#">2394239</a></td>
-              <td>01/28/2016</td>
-              <td>46929234</td>
-              <td>03/28/2016</td>
-              <td><a href="#"><span class="icon icon-pencil"></span></a></td>
-              <td><a href="#"><span class="icon icon-trash"></span></a></td>
-            </tr>
-            <tr>
-              <td>Marchon</td>
-              <td>Calvin Klein</td>
-              <td>5</td>
-              <td><a href="#">2394239</a></td>
-              <td>01/28/2016</td>
-              <td>46929234</td>
-              <td>03/28/2016</td>
-              <td><a href="#"><span class="icon icon-pencil"></span></a></td>
-              <td><a href="#"><span class="icon icon-trash"></span></a></td>
-            </tr>
+            <% @returns.each do |data| %>
+              <tr>
+                <td><%= data.manufacturer.name %></td>
+                <td><%= data.brand.name %></td>
+                <td><%= data.frame_count %></td>
+                <td><%= link_to data.auth_number, return_path(data) %></td>
+                <td><%= data.return_date %></td>
+                <td><%= data.credit_memo_number %></td>
+                <td><%= data.paid_date %></td>
+                <td>
+                  <%= link_to edit_return_path(data) do %>
+                    <span class="icon icon-pencil"></span>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to return_path(data), method: :delete, data: {confirm: "Are you sure?"} do %>
+                    <span class="icon icon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
