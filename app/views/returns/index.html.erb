@@ -3,7 +3,6 @@
   <div class="dashhead-titles">
     <h3 class="dashhead-title">Returns Overview</h3>
   </div>
-
 </div>
 
 <div class="pull-right">
@@ -28,11 +27,11 @@
 </select>
 
 <ul class="nav nav-bordered m-b-0" role="tablist">
-  <li class="active" role="presentation">
-    <a href="#outstanding" role="tab" data-toggle="tab" aria-controls="outstanding">Outstanding Returns</a>
-  </li>
   <li role="presentation">
     <a href="#all" role="tab" data-toggle="tab" aria-controls="all">All Returns</a>
+  </li>
+  <li class="active" role="presentation">
+    <a href="#outstanding" role="tab" data-toggle="tab" aria-controls="outstanding">Outstanding Returns</a>
   </li>
   <li role="presentation">
     <a href="#filter" role="tab" data-toggle="tab" aria-controls="filter">Filtered Results</a>
@@ -42,19 +41,19 @@
 <hr class="m-t-0 m-b-0">
 
 <div class="tab-content">
-  <div role="tabpanel" class="tab-pane active" id="outstanding">
-    <%= render 'table', returns: @outstanding %>
-  </div>
-
   <div role="tabpanel" class="tab-pane" id="all">
     <%= render 'table', returns: @returns %>
+  </div>
+
+  <div role="tabpanel" class="tab-pane active" id="outstanding">
+    <%= render 'table', returns: @outstanding %>
   </div>
 
   <div role="tabpanel" class="tab-pane" id="filter">
   </div>
 </div>
 
-<div class="text-center">
+<!-- <div class="text-center">
   <ul class="pagination">
     <li>
       <a href="#" aria-label="Previous">
@@ -72,4 +71,4 @@
       </a>
     </li>
   </ul>
-</div>
+</div> -->

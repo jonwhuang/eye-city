@@ -49,6 +49,10 @@ class ReturnsController < ApplicationController
     redirect_to returns_path
   end
 
+  def filter
+
+  end
+
   private
 
   def return_params
