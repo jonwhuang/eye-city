@@ -1,17 +1,28 @@
 <div class="text-center">
   <h4><%= @return.return_date %></h4>
-  <h2>RA #: <%= @return.auth_number %></h2>
+  <h2>RA #<%= @return.auth_number %></h2>
 
   <h3><%= @return.manufacturer.name %> | <%= @return.brand.name %></h3>
   <p><%= @return.frame_count %> Frame(s)</p>
 
   <% if @return.credited? %>
     <div class="green">
-      <p>Credited on <%= @return.credit_date %> - Credit Memo #: <%= @return.credit_memo_number %></p>
+      <p>Credited on <%= @return.credit_date %> - Credit Memo #<%= @return.credit_memo_number %></p>
     </div>
   <% else %>
     <div class="red">
       <p>No credit yet: <%= @return.days_outstanding %> days since authorization</p>
     </div>
   <% end %>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <% if @return.comments != "" %>
+      <div class="hr-divider m-t">
+        <h3 class="hr-divider-content hr-divider-heading">Notes</h3>
+      </div>
+      <p><%= @return.comments %></p>
+    <% end %>
+  </div>
 </div>

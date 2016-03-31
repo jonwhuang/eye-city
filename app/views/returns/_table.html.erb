@@ -1,0 +1,44 @@
+<div class="table-full">
+  <div class="table-responsive">
+    <table class="table tablesorter" data-sort="table">
+      <thead>
+        <tr>
+          <th>Manufacturer</th>
+          <th>Brand</th>
+          <th>Frame Count</th>
+          <th>RA Number</th>
+          <th>RA Date</th>
+          <th>CM Number</th>
+          <th>CM Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% returns.each do |data| %>
+          <% if data.comments == "" %>
+            <tr>
+          <% else %>
+            <tr class="commented">
+          <% end %>
+            <td><%= data.manufacturer.name %></td>
+            <td><%= data.brand.name %></td>
+            <td><%= data.frame_count %></td>
+            <td><%= link_to data.auth_number, return_path(data), class: "return-details" %></td>
+            <td><%= data.return_date %></td>
+            <td><%= data.credit_memo_number %></td>
+            <td><%= data.credit_date %></td>
+            <td>
+              <%= link_to edit_return_path(data) do %>
+                <span class="icon icon-pencil"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to return_path(data), method: :delete, data: {confirm: "Are you sure?"} do %>
+                <span class="icon icon-trash"></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

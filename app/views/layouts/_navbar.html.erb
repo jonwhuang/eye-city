@@ -1,25 +1,15 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Eye City Optometry", home_path, class: "navbar-brand navbar-brand-emphasized" %>
+    <div class="navbar-header pull-left">
+      <%= link_to "Eye City Optometry", root_path, class: "navbar-brand navbar-brand-emphasized" %>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <% if current_admin %>
-        <ul class="nav navbar-nav">
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
-          </li>
-        </ul>
-      <% end %>
-    </div>
+
+    <% if current_admin %>
+      <div class="navbar-header pull-right">
+        <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "navbar-brand" %>
+      </div>
+    <% end %>
+
   </div>
 </nav>
 
