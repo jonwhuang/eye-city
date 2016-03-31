@@ -2,11 +2,11 @@
   <%= form_for @return do |f| %>
     <div class="form-group">
       <%= f.label :manufacturer %>
-      <%= f.collection_select(:manufacturer_id, Manufacturer.all, :id, :name) %>
+      <%= f.collection_select(:manufacturer_id, Manufacturer.all + [Manufacturer.new(name: 'Create New...')], :id, :name, prompt: true) %>
     </div>
     <div class="form-group">
       <%= f.label :brand %>
-      <%= f.collection_select(:brand_id, Brand.all, :id, :name) %>
+      <%= f.collection_select(:brand_id, Brand.all, :id, :name, prompt: true) %>
     </div>
     <div class="form-group">
       <%= f.label :frame_count %>

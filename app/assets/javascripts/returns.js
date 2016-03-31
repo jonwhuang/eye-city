@@ -49,8 +49,9 @@ var showReturnDetails = function(e){
     method: 'GET',
     url: url
   }).done(function(response){
+    $('.modal-title').text('Return Info');
     $('.modal .modal-body').html(response);
+    $('.modal').modal('show');
   });
 
-  $('.modal').modal('show');
 }
