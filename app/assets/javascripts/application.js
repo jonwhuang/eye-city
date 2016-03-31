@@ -16,12 +16,13 @@
 //= require_tree .
 
 $(document).ready(function() {
+  startTablesorter();
+});
+
+var startTablesorter = function(){
   // call the tablesorter plugin
   $("[data-sort=table]").tablesorter({
     sortList: [[3,0]]
   });
-
-});
-
-
+}
 

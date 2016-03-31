@@ -7,7 +7,8 @@ $(document).ready(function(){
       url: '/filter',
       data: { 'manufacturer': manufacturer }
     }).done(function(response){
-      console.log(response);
+      showFilterResults(response);
+      $('.b-filter').val("Filter By Brand");
     })
   })
 
@@ -18,7 +19,14 @@ $(document).ready(function(){
       url: '/filter',
       data: { 'brand': brand }
     }).done(function(response){
-      console.log(response);
+      showFilterResults(response);
+      $('.m-filter').val("Filter By Manufacturer");
     })
   })
 });
+
+var showFilterResults = function(data){
+  $('#filter').html(data);
+  startTablesorter();
+  $('.return-tabs a[href="#filter"]').tab('show');
+}
