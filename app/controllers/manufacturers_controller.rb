@@ -1,4 +1,5 @@
 class ManufacturersController < ApplicationController
+  before_action :authenticate_admin!
 
   def new
     @manufacturer = Manufacturer.new
@@ -11,7 +12,7 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.new(manufacturer_params)
 
     if @manufacturer.save
-      flash[:notice] = "Manufacturer successfully created"
+      flash[:notice] = "Manufacturer successfully added"
       redirect_to returns_path
     else
       render 'new'

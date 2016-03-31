@@ -1,9 +1,7 @@
 class ReturnsController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
-    if !current_admin
-      redirect_to new_admin_session_path
-    end
     @manufacturers = Manufacturer.all
     @brands = Brand.all
     @returns = Return.all
@@ -32,6 +30,7 @@ class ReturnsController < ApplicationController
       flash[:notice] = "Return successfully created"
       redirect_to returns_path
     else
+      puts @return.errors.full_messages
       render 'new'
     end
   end
