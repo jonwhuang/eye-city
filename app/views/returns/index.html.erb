@@ -13,17 +13,16 @@
 
 <select class="custom-select custom-select-sm m-filter">
   <option>Filter By Manufacturer</option>
-  <option>Marchon</option>
-  <option>Luxottica</option>
-  <option>Marcolin</option>
+  <%= @manufacturers.each do |manufacturer| %>
+    <option><%= manufacturer.name %></option>
+  <% end %>
 </select>
 
 <select class="custom-select custom-select-sm b-filter">
   <option>Filter By Brand</option>
-  <option>Calvin Klein</option>
-  <option>Nike</option>
-  <option>Ray Ban</option>
-  <option>Tom Ford</option>
+  <%= @brands.each do |brand| %>
+    <option><%= brand.name %></option>
+  <% end %>
 </select>
 
 <ul class="nav nav-bordered m-b-0 return-tabs" role="tablist">

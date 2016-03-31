@@ -4,6 +4,8 @@ class ReturnsController < ApplicationController
     if !current_admin
       redirect_to new_admin_session_path
     end
+    @manufacturers = Manufacturer.all
+    @brands = Brand.all
     @returns = Return.all
     @outstanding = Return.where(credit_memo_number: "")
   end

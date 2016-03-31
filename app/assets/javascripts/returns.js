@@ -7,8 +7,8 @@ $(document).ready(function(){
       url: '/filter',
       data: { 'manufacturer': manufacturer }
     }).done(function(response){
-      showFilterResults(response);
       $('.b-filter').val("Filter By Brand");
+      showFilterResults(response);
     })
   })
 
@@ -19,8 +19,8 @@ $(document).ready(function(){
       url: '/filter',
       data: { 'brand': brand }
     }).done(function(response){
-      showFilterResults(response);
       $('.m-filter').val("Filter By Manufacturer");
+      showFilterResults(response);
     })
   })
 });
