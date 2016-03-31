@@ -15,7 +15,11 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
+$(document).ready(function(){
+  startTablesorter();
+})
+
+$(document).on('page:load', function() {
   startTablesorter();
 });
 
