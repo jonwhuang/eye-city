@@ -1,10 +1,11 @@
 class ReturnsController < ApplicationController
 
-  def home
+  def index
     if !current_admin
       redirect_to new_admin_session_path
     end
     @returns = Return.all
+    @outstanding = Return.where(credit_memo_number: "")
   end
 
   def show
@@ -24,7 +25,7 @@ class ReturnsController < ApplicationController
 
     if @return.save
       flash[:notice] = "Return successfully created"
-      redirect_to home_path
+      redirect_to returns_path
     else
       render 'new'
     end
@@ -35,7 +36,7 @@ class ReturnsController < ApplicationController
 
     if @return.update(return_params)
       flash[:notice] = "Return successfully updated"
-      redirect_to home_path
+      redirect_to returns_path
     else
       render 'edit'
     end
@@ -45,7 +46,7 @@ class ReturnsController < ApplicationController
     @return = Return.find(params[:id])
     @return.destroy
     flash[:notice] = "Return successfully deleted"
-    redirect_to home_path
+    redirect_to returns_path
   end
 
   private

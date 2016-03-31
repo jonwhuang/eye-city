@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'returns#home'
+  root 'returns#index'
 
   devise_for :admins, :skip => [:registrations]
   as :admin do
@@ -8,11 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :manufacturers
-  # resources :brands do
-  #   resources :returns, shallow: true
-  # end
   resources :brands
   resources :returns
 
-  get '/home' => 'returns#home'
 end
