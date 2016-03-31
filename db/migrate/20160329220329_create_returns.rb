@@ -3,9 +3,10 @@ class CreateReturns < ActiveRecord::Migration
     create_table :returns do |t|
       t.string :auth_number
       t.date :return_date
-      t.date :paid_date
+      t.date :credit_date
       t.string :credit_memo_number
       t.integer :brand_id
+      t.integer :manufacturer_id
       t.integer :frame_count
       t.string :comments
 

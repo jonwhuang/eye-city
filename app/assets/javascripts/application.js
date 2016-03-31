@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  // call the tablesorter plugin
+  $("[data-sort=table]").tablesorter({
+    sortList: [[3,0]]
+  });
+
+});
+
+
+

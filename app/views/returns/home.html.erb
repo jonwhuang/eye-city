@@ -1,1 +1,113 @@
-:)
+
+<div class="dashhead">
+  <div class="dashhead-titles">
+    <h3 class="dashhead-title">Returns Overview</h3>
+  </div>
+
+</div>
+
+<div class="pull-right">
+  <div class="btn-group">
+    <%= button_to "New Return", new_return_path, class: "btn btn-primary-outline", method: :get %>
+  </div>
+</div>
+
+<select class="custom-select custom-select-sm">
+  <option>Filter By Manufacturer</option>
+  <option>Marchon</option>
+  <option>Luxottica</option>
+  <option>Marcolin</option>
+</select>
+
+<select class="custom-select custom-select-sm">
+  <option>Filter By Brand</option>
+  <option>Calvin Klein</option>
+  <option>Nike</option>
+  <option>Ray Ban</option>
+  <option>Tom Ford</option>
+</select>
+
+<ul class="nav nav-bordered m-b-0" role="tablist">
+  <li class="active" role="presentation">
+    <a href="#outstanding" role="tab" data-toggle="tab" aria-controls="outstanding">Outstanding Returns</a>
+  </li>
+  <li role="presentation">
+    <a href="#all" role="tab" data-toggle="tab" aria-controls="all">All Returns</a>
+  </li>
+  <li role="presentation">
+    <a href="#filter" role="tab" data-toggle="tab" aria-controls="filter">Filtered Results</a>
+  </li>
+</ul>
+
+<hr class="m-t-0 m-b-0">
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="outstanding">
+    <div class="table-full">
+      <div class="table-responsive">
+        <table class="table tablesorter" data-sort="table">
+          <thead>
+            <tr>
+              <th>Manufacturer</th>
+              <th>Brand</th>
+              <th>Frame Count</th>
+              <th>RA Number</th>
+              <th>RA Date</th>
+              <th>CM Number</th>
+              <th>CM Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @returns.each do |data| %>
+              <tr>
+                <td><%= data.manufacturer.name %></td>
+                <td><%= data.brand.name %></td>
+                <td><%= data.frame_count %></td>
+                <td><%= link_to data.auth_number, return_path(data) %></td>
+                <td><%= data.return_date %></td>
+                <td><%= data.credit_memo_number %></td>
+                <td><%= data.credit_date %></td>
+                <td>
+                  <%= link_to edit_return_path(data) do %>
+                    <span class="icon icon-pencil"></span>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to return_path(data), method: :delete, data: {confirm: "Are you sure?"} do %>
+                    <span class="icon icon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="all">
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="filter">
+  </div>
+</div>
+
+<div class="text-center">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</div>

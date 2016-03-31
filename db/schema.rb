@@ -54,9 +54,10 @@ ActiveRecord::Schema.define(version: 20160329232108) do
   create_table "returns", force: :cascade do |t|
     t.string   "auth_number"
     t.date     "return_date"
-    t.date     "paid_date"
+    t.date     "credit_date"
     t.string   "credit_memo_number"
     t.integer  "brand_id"
+    t.integer  "manufacturer_id"
     t.integer  "frame_count"
     t.string   "comments"
     t.datetime "created_at",         null: false
