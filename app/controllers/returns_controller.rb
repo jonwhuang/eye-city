@@ -50,7 +50,15 @@ class ReturnsController < ApplicationController
   end
 
   def filter
-
+    if params[:manufacturer]
+      manufacturer = Manufacturer.find_by(name: params[:manufacturer])
+      @returns = Return.where(manufacturer_id: manufacturer.id)
+      render '_table', layout: false, locals: {returns: @returns}
+    elsif params[:brand]
+      brand = Brand.find_by(name: params[:brand])
+      @returns = Return.where(brand_id: brand.id)
+      render '_table', layout: false, locals: {returns: @returns}
+    end
   end
 
   private
