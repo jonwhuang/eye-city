@@ -12,6 +12,9 @@ class ReturnsController < ApplicationController
 
   def show
     @return = Return.find(params[:id])
+    if request.xhr?
+      render 'show', layout: false
+    end
   end
 
   def new

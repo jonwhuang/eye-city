@@ -1,5 +1,18 @@
 $(document).ready(function(){
 
+  $('.tab-pane').on('click', 'a.return-details', function(e){
+    e.preventDefault();
+    var url = $(this).attr('href');
+    $.ajax({
+      method: 'GET',
+      url: url
+    }).done(function(response){
+      $('.modal .modal-body').html(response);
+    });
+
+    $('.modal').modal('show');
+  })
+
   $('.m-filter').on('change', function(){
     var manufacturer = $('.m-filter option:selected').text();
     $.ajax({

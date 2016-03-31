@@ -18,7 +18,7 @@
             <td><%= data.manufacturer.name %></td>
             <td><%= data.brand.name %></td>
             <td><%= data.frame_count %></td>
-            <td><%= link_to data.auth_number, return_path(data) %></td>
+            <td><%= link_to data.auth_number, return_path(data), class: "return-details" %></td>
             <td><%= data.return_date %></td>
             <td><%= data.credit_memo_number %></td>
             <td><%= data.credit_date %></td>
