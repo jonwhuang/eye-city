@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :brands
   resources :returns
 
+  get '/filter' => 'returns#filter'
 end
