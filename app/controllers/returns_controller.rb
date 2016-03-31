@@ -30,7 +30,6 @@ class ReturnsController < ApplicationController
       flash[:notice] = "Return successfully created"
       redirect_to returns_path
     else
-      puts @return.errors.full_messages
       render 'new'
     end
   end

@@ -1,0 +1,2 @@
+<%= f.label :manufacturer %>
+<%= f.collection_select(:manufacturer_id, Manufacturer.all + [Manufacturer.new(name: 'Create New...')], :id, :name, prompt: true) %>

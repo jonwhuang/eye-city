@@ -1,0 +1,2 @@
+<%= f.label :brand %>
+<%= f.collection_select(:brand_id, Brand.all, :id, :name, prompt: true) %>
