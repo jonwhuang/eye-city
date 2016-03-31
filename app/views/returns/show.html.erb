@@ -15,3 +15,14 @@
     </div>
   <% end %>
 </div>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <% if @return.comments != "" %>
+      <div class="hr-divider m-t">
+        <h3 class="hr-divider-content hr-divider-heading">Notes</h3>
+      </div>
+      <p><%= @return.comments %></p>
+    <% end %>
+  </div>
+</div>

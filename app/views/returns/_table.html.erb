@@ -14,7 +14,11 @@
       </thead>
       <tbody>
         <% returns.each do |data| %>
-          <tr>
+          <% if data.comments == "" %>
+            <tr>
+          <% else %>
+            <tr class="commented">
+          <% end %>
             <td><%= data.manufacturer.name %></td>
             <td><%= data.brand.name %></td>
             <td><%= data.frame_count %></td>
