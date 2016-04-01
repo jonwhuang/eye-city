@@ -1,7 +1,8 @@
 class ReturnsController < ApplicationController
-  before_action :authenticate_admin!
+  before_action :authenticate_admin!, except: [:index]
 
   def index
+    redirect_to new_admin_session_path if !current_admin
     @manufacturers = Manufacturer.all
     @brands = Brand.all
     @returns = Return.all
