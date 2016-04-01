@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :brands
   resources :returns
 
+  get '/collection' => 'manufacturers#collection'
   get '/filter' => 'returns#filter'
 end

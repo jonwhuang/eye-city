@@ -10,6 +10,14 @@ $(document).ready(function(){
         $('.modal .modal-body').html(response);
         $('.modal').modal('show');
       })
+    } else {
+      $.ajax({
+        method: 'GET',
+        url: '/collection',
+        data: { "name": option }
+      }).done(function(response){
+        $('.brand-select').html(response);
+      })
     }
   })
 

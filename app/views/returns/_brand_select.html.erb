@@ -1,2 +1,2 @@
 <%= label :return, :brand, '*Brand' %>
-<%= collection_select(:return, :brand_id, Brand.all + [Brand.new(name: 'Create New...')], :id, :name, {prompt: true}, {class: "brand-select-menu"}) %>
+<%= collection_select(:return, :brand_id, @brands + [Brand.new(name: 'Create New...')], :id, :name, {prompt: true}, {class: "brand-select-menu"}) %>

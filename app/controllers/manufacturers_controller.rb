@@ -1,6 +1,12 @@
 class ManufacturersController < ApplicationController
   before_action :authenticate_admin!
 
+  def collection
+    manufacturer = Manufacturer.find_by(name: params[:name])
+    @brands = manufacturer.brands
+    render 'returns/_brand_select', layout: false
+  end
+
   def new
     @manufacturer = Manufacturer.new
     if request.xhr?
