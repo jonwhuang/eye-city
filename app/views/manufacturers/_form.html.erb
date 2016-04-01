@@ -1,4 +1,6 @@
-<%= render 'layouts/errors', object: @manufacturer %>
+<div class="manufacturer-errors">
+  <%= render 'layouts/errors', object: @manufacturer %>
+</div>
 
 <div class="form-container text-center manufacturer-form">
   <%= form_for @manufacturer do |f| %>

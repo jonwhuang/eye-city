@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('select#return_brand_id').on('change', function(){
+  $('.return-form').on('change', 'select#return_brand_id', function(){
     var option = $('select#return_brand_id option:selected').text();
     if (option === 'Create New...'){
       $.ajax({
@@ -28,6 +28,8 @@ $(document).ready(function(){
         return $.trim( $(this).text() ) == brand;
       }).attr('selected', 'selected');
       $('.modal').modal('hide');
+    }).fail(function(response){
+      $('.brand-errors').html('<p class="alert alert-danger">Name can\'t be blank</p>');
     })
   })
 })

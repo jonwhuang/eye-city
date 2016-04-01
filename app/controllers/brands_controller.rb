@@ -23,9 +23,9 @@ class BrandsController < ApplicationController
       end
     else
       if request.xhr?
-        if @brand = Brand.find_by(name: params["brand"]["name"])
+        if @existing_brand = Brand.find_by(name: params["brand"]["name"])
           manufacturer = Manufacturer.find_by(name: params[:manufacturer])
-          @brand.manufacturers << manufacturer
+          @existing_brand.manufacturers << manufacturer
           render 'returns/_brand_select', layout: false
         else
           render json: @brand.errors, status: :unprocessable_entity

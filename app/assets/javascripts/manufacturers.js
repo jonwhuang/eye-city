@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('select#return_manufacturer_id').on('change', function(){
+  $('.return-form').on('change','select#return_manufacturer_id', function(){
     var option = $('select#return_manufacturer_id option:selected').text();
     if (option === 'Create New...'){
       $.ajax({
@@ -27,6 +27,8 @@ $(document).ready(function(){
         return $.trim( $(this).text() ) == manufacturer;
       }).attr('selected', 'selected');
       $('.modal').modal('hide');
+    }).fail(function(response){
+      $('.manufacturer-errors').html('<p class="alert alert-danger">Name can\'t be blank</p>');
     })
   })
 })
