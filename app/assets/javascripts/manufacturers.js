@@ -1,4 +1,12 @@
+$(document).on('page:load', function(){
+  returnFormListeners();
+})
+
 $(document).ready(function(){
+  returnFormListeners();
+})
+
+var returnFormListeners = function(){
   $('.return-form').on('change','select#return_manufacturer_id', function(){
     var option = $('select#return_manufacturer_id option:selected').text();
     if (option === 'Create New...'){
@@ -39,4 +47,4 @@ $(document).ready(function(){
       $('.manufacturer-errors').html('<p class="alert alert-danger">Name can\'t be blank</p>');
     })
   })
-})
+}
