@@ -5,3 +5,7 @@
 .m-name:hover {
   cursor: pointer;
 }
+
+.table tr.m-row.active td{
+  background-color: #e5f2fb;
+}

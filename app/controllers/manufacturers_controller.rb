@@ -11,6 +11,15 @@ class ManufacturersController < ApplicationController
     @manufacturers = Manufacturer.all.order(:name)
   end
 
+  def show
+    @manufacturer = Manufacturer.find(params[:id])
+    @brands = @manufacturer.brands
+
+    if request.xhr?
+      render 'brands/_list', layout: false
+    end
+  end
+
   def new
     @manufacturer = Manufacturer.new
     if request.xhr?

@@ -1,0 +1,28 @@
+<div class="table-full col-md-5 col-sm-5 col-xs-6">
+  <div class="table-responsive">
+    <table class="table tablesorter" data-sort="b-table">
+      <thead>
+        <tr>
+          <th>Brands</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @brands.each do |brand| %>
+          <tr class="b-row">
+            <td class="b-nabe"><%= brand.name %></td>
+            <td class="edit-m">
+              <%= link_to edit_brand_path(brand), remote: true, class: "edit-brand" do %>
+                <span class="icon icon-pencil"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to brand_path(brand), class: "delete-brand", method: :delete, data: {confirm: "Are you sure? This will also delete all associated returns."} do %>
+                <span class="icon icon-trash"></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
