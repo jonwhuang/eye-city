@@ -13,9 +13,17 @@ class ManufacturersController < ApplicationController
 
     if @manufacturer.save
       flash[:notice] = "Manufacturer successfully added"
-      redirect_to returns_path
+      if request.xhr?
+        render 'returns/_manufacturer_select', layout: false
+      else
+        redirect_to returns_path
+      end
     else
-      render 'new'
+      if request.xhr?
+        render json: @manufacturer.errors, status: :unprocessable_entity
+      else
+        render 'new'
+      end
     end
   end
 

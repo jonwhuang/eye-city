@@ -38,8 +38,8 @@ var brandFilter = function(){
 
 var showFilterResults = function(data){
   $('#filter').html(data);
-  startTablesorter();
   $('.return-tabs a[href="#filter"]').tab('show');
+  startTablesorter();
 }
 
 var showReturnDetails = function(e){

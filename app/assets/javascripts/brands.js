@@ -11,6 +11,23 @@ $(document).ready(function(){
         $('.modal').modal('show');
       })
     }
+  })
 
+  $('.modal').on('submit', '.brand-form form', function(e){
+    e.preventDefault();
+    var manufacturer = $('select#return_manufacturer_id option:selected').text();
+    var data = $(this).serialize() + '&manufacturer=' + manufacturer;
+    var brand = $(this)[0][2].value;
+    $.ajax({
+      method: 'POST',
+      url: '/brands',
+      data: data
+    }).done(function(response){
+      $('.brand-select').html(response);
+      $('.brand-select-menu option').filter(function(){
+        return $.trim( $(this).text() ) == brand;
+      }).attr('selected', 'selected');
+      $('.modal').modal('hide');
+    })
   })
 })
