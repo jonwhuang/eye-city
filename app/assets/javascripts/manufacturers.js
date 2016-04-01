@@ -1,9 +1,11 @@
 $(document).on('page:load', function(){
   returnFormListeners();
+  showManufacturerBrands();
 })
 
 $(document).ready(function(){
   returnFormListeners();
+  showManufacturerBrands();
 })
 
 var returnFormListeners = function(){
@@ -46,5 +48,17 @@ var returnFormListeners = function(){
     }).fail(function(response){
       $('.manufacturer-errors').html('<p class="alert alert-danger">Name can\'t be blank</p>');
     })
+  })
+}
+
+var showManufacturerBrands = function(){
+  $('.m-row').mouseover(function(){
+    $(this).css('background-color', '#e5f2fb');
+  }).mouseout(function(){
+    $(this).css('background-color', 'initial');
+  })
+
+  $('.m-name').on('click', function(){
+    debugger;
   })
 }
