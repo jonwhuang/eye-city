@@ -67,8 +67,12 @@ class ManufacturersController < ApplicationController
   def destroy
     @manufacturer = Manufacturer.find(params[:id])
     @manufacturer.destroy
-
-    redirect_to manufacturers_path
+    if request.xhr?
+      @manufacturers = Manufacturer.all.order(:name)
+      render '_list', layout: false
+    else
+      redirect_to manufacturers_path
+    end
   end
 
 

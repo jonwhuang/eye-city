@@ -16,7 +16,7 @@
               <% end %>
             </td>
             <td>
-              <%= link_to manufacturer_path(manufacturer), method: :delete, data: {confirm: "Are you sure? This will also delete all associated returns."} do %>
+              <%= link_to manufacturer_path(manufacturer), remote: true, class: "delete-manufacturer", method: :delete, data: {confirm: "Are you sure? This will also delete all associated returns."} do %>
                 <span class="icon icon-trash"></span>
               <% end %>
             </td>

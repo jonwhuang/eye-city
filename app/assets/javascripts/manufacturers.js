@@ -2,12 +2,14 @@ $(document).on('page:load', function(){
   returnFormListeners();
   showManufacturerBrands();
   editManufacturer();
+  deleteManufacturer();
 })
 
 $(document).ready(function(){
   returnFormListeners();
   showManufacturerBrands();
   editManufacturer();
+  deleteManufacturer();
 })
 
 var returnFormListeners = function(){
@@ -87,3 +89,8 @@ var editManufacturer = function(){
   })
 }
 
+var deleteManufacturer = function(){
+  $('.manufacturer-list').on('ajax:success', 'a.delete-manufacturer', function(e, data){
+    $('.manufacturer-list').html(data);
+  })
+}
