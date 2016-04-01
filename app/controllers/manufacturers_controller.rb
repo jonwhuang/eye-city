@@ -20,6 +20,9 @@ class ManufacturersController < ApplicationController
 
   def edit
     @manufacturer = Manufacturer.find(params[:id])
+    if request.xhr?
+      render '_form', layout: false
+    end
   end
 
   def create
@@ -46,9 +49,18 @@ class ManufacturersController < ApplicationController
 
     if @manufacturer.update(manufacturer_params)
       flash[:notice] = "Manufacturer successfully updated"
-      redirect_to manufacturers_path
+      if request.xhr?
+        @manufacturers = Manufacturer.all.order(:name)
+        render '_list', layout: false
+      else
+        redirect_to manufacturers_path
+      end
     else
-      render 'edit'
+      if request.xhr?
+        render json: @manufacturer.errors, status: :unprocessable_entity
+      else
+        render 'edit'
+      end
     end
   end
 

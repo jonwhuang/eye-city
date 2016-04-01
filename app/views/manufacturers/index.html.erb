@@ -2,31 +2,8 @@
   <h3 class="hr-divider-content">Manage Manufacturers & Brands</h3>
 </div>
 
-<div class="table-full col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-5 col-xs-6">
-  <div class="table-responsive">
-    <table class="table tablesorter" data-sort="m-table">
-      <thead>
-        <tr>
-          <th>Manufacturers</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @manufacturers.each do |manufacturer| %>
-          <tr class="m-row">
-            <td class="m-name"><%= manufacturer.name %></td>
-            <td>
-              <%= link_to edit_manufacturer_path(manufacturer), remote: true do %>
-                <span class="icon icon-pencil"></span>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to manufacturer_path(manufacturer), method: :delete, data: {confirm: "Are you sure? This will also delete all associated returns."} do %>
-                <span class="icon icon-trash"></span>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<div class="manufacturer-list">
+  <%= render 'list' %>
 </div>
+
+<%= render 'layouts/modal', layout: false %>
