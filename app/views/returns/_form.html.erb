@@ -1,6 +1,8 @@
 <%= render 'layouts/errors', object: @return %>
 
-<div class="form-container">
+<p>* = required</p>
+
+<div class="form-container return-form">
   <%= form_for @return do |f| %>
     <div class="form-group manufacturer-select">
       <%= render 'manufacturer_select', f: f %>
@@ -9,15 +11,15 @@
       <%= render 'brand_select', f: f %>
     </div>
     <div class="form-group">
-      <%= f.label :frame_count %>
+      <%= f.label :frame_count, '*Frame Count' %>
       <%= f.number_field :frame_count, step: 1 %>
     </div>
     <div class="form-group">
-      <%= f.label :return_authorization_number %>
+      <%= f.label :auth_number, '*Return authorization number' %>
       <%= f.text_field :auth_number %>
     </div>
     <div class="form-group">
-      <%= f.label :return_authorization_date %>
+      <%= f.label :return_date, '*Return authorization date' %>
       <%= f.date_field :return_date %>
     </div>
     <div class="form-group">
@@ -25,12 +27,12 @@
       <%= f.text_field :credit_memo_number %>
     </div>
     <div class="form-group">
-      <%= f.label :credit_memo_date %>
+      <%= f.label :credit_date %>
       <%= f.date_field :credit_date %>
     </div>
     <div class="form-group">
-      <%= f.label :comments %>
-      <%= f.text_area :comments %>
+      <%= f.label :comments %></br>
+      <%= f.text_area :comments, cols: 40, rows: 3 %>
     </div>
 
     <%= f.submit "Submit", class: "btn btn-primary-outline" %>

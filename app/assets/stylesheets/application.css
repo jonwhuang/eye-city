@@ -42,3 +42,7 @@ hr {
 .navbar-static-top {
   border-bottom: 0;
 }
+
+.return-form label {
+  width: 250px;
+}

@@ -1,0 +1,11 @@
+<%= render 'layouts/errors', object: @brand %>
+
+<div class="form-container text-center">
+  <%= form_for @brand do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-primary-outline" %>
+  <% end %>
+</div>
