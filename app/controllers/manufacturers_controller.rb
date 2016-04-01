@@ -7,11 +7,19 @@ class ManufacturersController < ApplicationController
     render 'returns/_brand_select', layout: false
   end
 
+  def index
+    @manufacturers = Manufacturer.all.order(:name)
+  end
+
   def new
     @manufacturer = Manufacturer.new
     if request.xhr?
       render '_form', layout: false
     end
+  end
+
+  def edit
+    @manufacturer = Manufacturer.find(params[:id])
   end
 
   def create
@@ -31,6 +39,24 @@ class ManufacturersController < ApplicationController
         render 'new'
       end
     end
+  end
+
+  def update
+    @manufacturer = Manufacturer.find(params[:id])
+
+    if @manufacturer.update(manufacturer_params)
+      flash[:notice] = "Manufacturer successfully updated"
+      redirect_to manufacturers_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @manufacturer = Manufacturer.find(params[:id])
+    @manufacturer.destroy
+
+    redirect_to manufacturers_path
   end
 
 
