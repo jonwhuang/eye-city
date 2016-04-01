@@ -38,8 +38,8 @@ var brandFilter = function(){
 
 var showFilterResults = function(data){
   $('#filter').html(data);
-  startTablesorter();
   $('.return-tabs a[href="#filter"]').tab('show');
+  startTablesorter();
 }
 
 var showReturnDetails = function(e){
@@ -49,8 +49,9 @@ var showReturnDetails = function(e){
     method: 'GET',
     url: url
   }).done(function(response){
+    $('.modal-title').text('Return Info');
     $('.modal .modal-body').html(response);
+    $('.modal').modal('show');
   });
 
-  $('.modal').modal('show');
 }

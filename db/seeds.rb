@@ -15,3 +15,4 @@ rb.manufacturers << luxottica
 
 tf = Brand.create(name: "Tom Ford")
 tf.manufacturers << marcolin
+

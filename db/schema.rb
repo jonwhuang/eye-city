@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160329232108) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "brands", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,19 +46,19 @@ ActiveRecord::Schema.define(version: 20160329232108) do
   end
 
   create_table "manufacturers", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "returns", force: :cascade do |t|
-    t.string   "auth_number"
-    t.date     "return_date"
+    t.string   "auth_number",        null: false
+    t.date     "return_date",        null: false
     t.date     "credit_date"
     t.string   "credit_memo_number"
-    t.integer  "brand_id"
-    t.integer  "manufacturer_id"
-    t.integer  "frame_count"
+    t.integer  "brand_id",           null: false
+    t.integer  "manufacturer_id",    null: false
+    t.integer  "frame_count",        null: false
     t.string   "comments"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
