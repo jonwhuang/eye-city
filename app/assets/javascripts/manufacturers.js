@@ -16,25 +16,7 @@ $(document).ready(function(){
 
 var returnFormManufacturerListeners = function(){
   $('.return-form').on('change','select#return_manufacturer_id', function(){
-    var option = $('select#return_manufacturer_id option:selected').text();
-    if (option === 'Create New...'){
-      $.ajax({
-        method: 'GET',
-        url: '/manufacturers/new'
-      }).done(function(response){
-        $('.modal-title').text('New Manufacturer');
-        $('.modal .modal-body').html(response);
-        $('.modal').modal('show');
-      })
-    } else {
-      $.ajax({
-        method: 'GET',
-        url: '/collection',
-        data: { "name": option }
-      }).done(function(response){
-        $('.brand-select').html(response);
-      })
-    }
+    showBrandSelect();
   })
 
   $('.modal').on('submit', '.manufacturer-form form', function(e){
@@ -52,6 +34,7 @@ var returnFormManufacturerListeners = function(){
           return $.trim( $(this).text() ) == manufacturer;
         }).attr('selected', 'selected');
         $('.modal').modal('hide');
+        showBrandSelect();
       }).fail(function(response){
         $('.manufacturer-errors').html('<p class="alert alert-danger">Name can\'t be blank</p>');
       })
@@ -69,6 +52,28 @@ var returnFormManufacturerListeners = function(){
       })
     }
   })
+}
+
+var showBrandSelect = function(){
+  var option = $('select#return_manufacturer_id option:selected').text();
+  if (option === 'Create New...'){
+    $.ajax({
+      method: 'GET',
+      url: '/manufacturers/new'
+    }).done(function(response){
+      $('.modal-title').text('New Manufacturer');
+      $('.modal .modal-body').html(response);
+      $('.modal').modal('show');
+    })
+  } else {
+    $.ajax({
+      method: 'GET',
+      url: '/collection',
+      data: { "name": option }
+    }).done(function(response){
+      $('.brand-select').html(response);
+    })
+  }
 }
 
 var highlightManufacturersBrands = function(){
