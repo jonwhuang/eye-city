@@ -75,15 +75,19 @@ var editBrand = function(){
 
 var deleteBrand = function(){
   $('.brand-list').on('click', 'a.delete-brand', function(e){
-    e.preventDefault();
-    var manufacturer = $('.m-row.active').children()[0].innerText;
-    var url = $(this).attr('href');
-    $.ajax({
-      method: 'DELETE',
-      url: url,
-      data: { 'manufacturer': manufacturer}
-    }).done(function(response){
-      $('.brand-list').html(data);
-    })
+    if(confirm("Are you sure? This will also delete all associated returns.")){
+      var manufacturer = $('.m-row.active').children()[0].innerText;
+      var url = $(this).attr('href');
+      $.ajax({
+        method: 'DELETE',
+        url: url,
+        data: { 'manufacturer': manufacturer}
+      }).done(function(response){
+        $('.brand-list').html(response);
+      })
+      return false;
+    } else {
+      return false;
+    }
   })
 }

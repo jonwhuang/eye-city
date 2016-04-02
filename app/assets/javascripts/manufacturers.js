@@ -107,10 +107,12 @@ var editManufacturer = function(){
     $('.modal .modal-body').html(data);
     $('.modal').modal('show');
   })
+  highlightManufacturersBrands();
 }
 
 var deleteManufacturer = function(){
   $('.manufacturer-list').on('ajax:success', 'a.delete-manufacturer', function(e, data){
     $('.manufacturer-list').html(data);
   })
+  highlightManufacturersBrands();
 }

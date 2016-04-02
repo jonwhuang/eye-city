@@ -77,7 +77,6 @@ class BrandsController < ApplicationController
   def destroy
     @brand = Brand.find(params[:id])
     @brand.destroy
-    puts '*****' * 5
     if request.xhr?
       @brands = Brand.all.order(:name)
       render '_list', layout: false
