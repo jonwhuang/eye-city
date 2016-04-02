@@ -118,6 +118,7 @@ var editManufacturer = function(){
 var deleteManufacturer = function(){
   $('.manufacturer-list').on('ajax:success', 'a.delete-manufacturer', function(e, data){
     $('.manufacturer-list').html(data);
+    $('.brand-list').empty();
   })
   highlightManufacturersBrands();
 }

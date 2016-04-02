@@ -75,6 +75,9 @@ class ManufacturersController < ApplicationController
 
   def destroy
     @manufacturer = Manufacturer.find(params[:id])
+    brands = @manufacturer.brands
+    brands.first.destroy if brands.count == 1
+
     @manufacturer.destroy
     if request.xhr?
       @manufacturers = Manufacturer.all.order(:name)
