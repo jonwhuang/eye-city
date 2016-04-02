@@ -76,11 +76,23 @@ class BrandsController < ApplicationController
 
   def destroy
     @brand = Brand.find(params[:id])
-    @brand.destroy
     if request.xhr?
-      @brands = Brand.all.order(:name)
+      manufacturer = Manufacturer.find_by(name: params[:manufacturer])
+
+      if @brand.manufacturers.count > 1
+        manufacturer.brands.delete(@brand)
+        returns = Return.where(brand_id: @brand.id, manufacturer_id: manufacturer.id)
+        returns.each { |data| data.destroy }
+      else
+        returns = Return.where(brand_id: @brand.id)
+        returns.each { |data| data.destroy }
+        @brand.destroy
+      end
+
+      @brands = manufacturer.brands
       render '_list', layout: false
     else
+      @brand.destroy
       redirect_to brands_path
     end
   end
