@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: eye-city_production
-  username: eye-city
+  username: centos
   password: <%= ENV['EYE-CITY_DATABASE_PASSWORD'] %>
