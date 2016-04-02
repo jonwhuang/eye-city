@@ -23,14 +23,13 @@ class BrandsController < ApplicationController
     @brand = Brand.new(brand_params)
 
     if @brand.save
-      flash[:notice] = "Brand successfully added"
-
       if request.xhr?
         manufacturer = Manufacturer.find_by(name: params[:manufacturer])
         @brand.manufacturers << manufacturer
         @brands = manufacturer.brands
         render 'returns/_brand_select', layout: false
       else
+        flash[:notice] = "Brand successfully added"
         redirect_to returns_path
       end
     else
@@ -57,12 +56,12 @@ class BrandsController < ApplicationController
     @brand = Brand.find(params[:id])
 
     if @brand.update(brand_params)
-      flash[:notice] = "Brand successfully updated"
       if request.xhr?
         manufacturer = Manufacturer.find_by(name: params[:manufacturer])
         @brands = manufacturer.brands
         render '_list', layout: false
       else
+        flash[:notice] = "Brand successfully updated"
         redirect_to brands_path
       end
     else
