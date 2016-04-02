@@ -5,3 +5,13 @@
 .m-name:hover {
   cursor: pointer;
 }
+
+.table tr.m-row.active td{
+  background-color: #e5f2fb;
+}
+
+.m-name a:hover,
+.m-name a:focus {
+  text-decoration: none;
+  color: #1CA8DD;
+}

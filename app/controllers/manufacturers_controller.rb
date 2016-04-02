@@ -11,6 +11,15 @@ class ManufacturersController < ApplicationController
     @manufacturers = Manufacturer.all.order(:name)
   end
 
+  def show
+    @manufacturer = Manufacturer.find(params[:id])
+    @brands = @manufacturer.brands
+
+    if request.xhr?
+      render 'brands/_list', layout: false
+    end
+  end
+
   def new
     @manufacturer = Manufacturer.new
     if request.xhr?
@@ -29,10 +38,10 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.new(manufacturer_params)
 
     if @manufacturer.save
-      flash[:notice] = "Manufacturer successfully added"
       if request.xhr?
         render 'returns/_manufacturer_select', layout: false
       else
+        flash[:notice] = "Manufacturer successfully added"
         redirect_to returns_path
       end
     else
@@ -48,11 +57,11 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.find(params[:id])
 
     if @manufacturer.update(manufacturer_params)
-      flash[:notice] = "Manufacturer successfully updated"
       if request.xhr?
         @manufacturers = Manufacturer.all.order(:name)
         render '_list', layout: false
       else
+        flash[:notice] = "Manufacturer successfully updated"
         redirect_to manufacturers_path
       end
     else
@@ -66,6 +75,9 @@ class ManufacturersController < ApplicationController
 
   def destroy
     @manufacturer = Manufacturer.find(params[:id])
+    brands = @manufacturer.brands
+    brands.first.destroy if brands.count == 1
+
     @manufacturer.destroy
     if request.xhr?
       @manufacturers = Manufacturer.all.order(:name)
