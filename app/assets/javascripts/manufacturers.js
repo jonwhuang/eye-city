@@ -6,7 +6,7 @@ $(document).on('page:load', function(){
   highlightManufacturersBrands();
 })
 
-$(document).ready(function(){
+$(document).on('page:change', function(){
   returnFormManufacturerListeners();
   showManufacturerBrands();
   editManufacturer();
