@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th>Manufacturer</th>
+      <th>Brand</th>
+      <th>Frame Count</th>
+      <th>RA Number</th>
+      <th>RA Date</th>
+      <th>Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @outstanding.each do |data| %>
+        <td><%= data.manufacturer.name %></td>
+        <td><%= data.brand.name %></td>
+        <td><%= data.frame_count %></td>
+        <td><%= data.auth_number %></td>
+        <td><%= data.return_date %></td>
+        <td><%= data.comments %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

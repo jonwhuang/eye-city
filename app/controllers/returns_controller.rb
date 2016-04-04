@@ -7,6 +7,13 @@ class ReturnsController < ApplicationController
     @brands = Brand.all.order(:name)
     @returns = Return.all.order(:return_date)
     @outstanding = Return.where("credit_memo_number = '' OR credit_memo_number IS NULL").order(:return_date)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: "test",
+                orientation: "Landscape"
+      end
+    end
   end
 
   def show
