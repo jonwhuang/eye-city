@@ -42,8 +42,8 @@ var returnFormBrandListeners = function(){
           return $.trim( $(this).text() ) == brand;
         }).attr('selected', 'selected');
         $('.modal').modal('hide');
+        $('.alert-msgs').html('<p class="alert alert-success">Brand successfully added.</p>').animate({ opacity: 0 }, 4000)
       }).fail(function(response){
-        console.log(response);
         $('.brand-errors').html('<p class="alert alert-danger">Name ' + response.responseJSON.name[0] + '</p>');
       })
     } else {
@@ -57,8 +57,8 @@ var returnFormBrandListeners = function(){
       }).done(function(response){
         $('.brand-list').html(response);
         $('.modal').modal('hide');
+        $('.alert-msgs').html('<p class="alert alert-success">Brand successfully updated.</p>').animate({ opacity: 0 })
       }).fail(function(response){
-        console.log(response);
         $('.brand-errors').html('<p class="alert alert-danger">Name ' + response.responseJSON.name[0] + '</p>');
       })
     }
@@ -85,6 +85,7 @@ var deleteBrand = function(){
       }).done(function(response){
         $('.brand-list').html(response);
       })
+      $('.alert-msgs').html('<p class="alert alert-success">Brand successfully deleted.</p>').animate({ opacity: 0 }, 4000)
       return false;
     } else {
       return false;

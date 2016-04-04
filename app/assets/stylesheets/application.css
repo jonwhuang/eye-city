@@ -50,3 +50,8 @@ hr {
 div.field_with_errors {
   display: inline-block;
 }
+
+.alert-msgs {
+  vertical-align: top;
+  height: 30px;
+}
