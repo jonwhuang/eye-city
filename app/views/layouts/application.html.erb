@@ -8,11 +8,9 @@
 </head>
 <body class="with-top-navbar">
   <%= render 'layouts/navbar' %>
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-  <% elsif alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
+  <div class="alert-msgs">
+    <%= render 'layouts/alerts' %>
+  </div>
   <div class="container">
     <%= yield %>
   </div>
