@@ -6,6 +6,7 @@
 
     <% if current_admin %>
       <div class="navbar-header pull-right">
+        <%= link_to "My Account", edit_admin_registration_path, class: "navbar-brand" %>
         <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "navbar-brand" %>
       </div>
     <% end %>
