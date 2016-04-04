@@ -19,9 +19,9 @@ $(document).on('page:change', function(){
   startTablesorter();
 })
 
-$(document).on('page:load', function() {
-  startTablesorter();
-});
+// $(document).on('page:load', function() {
+//   startTablesorter();
+// });
 
 var startTablesorter = function(){
   // call the tablesorter plugin

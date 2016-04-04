@@ -2,9 +2,9 @@ $(document).on('page:change', function(){
   bindReturnListeners();
 });
 
-$(document).on('page:load', function(){
-  bindReturnListeners();
-})
+// $(document).on('page:load', function(){
+//   bindReturnListeners();
+// })
 
 var bindReturnListeners = function(){
   $('.tab-pane').on('click', 'a.return-details', showReturnDetails);

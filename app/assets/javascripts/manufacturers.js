@@ -1,10 +1,10 @@
-$(document).on('page:load', function(){
-  returnFormManufacturerListeners();
-  showManufacturerBrands();
-  editManufacturer();
-  deleteManufacturer();
-  highlightManufacturersBrands();
-})
+// $(document).on('page:load', function(){
+//   returnFormManufacturerListeners();
+//   showManufacturerBrands();
+//   editManufacturer();
+//   deleteManufacturer();
+//   highlightManufacturersBrands();
+// })
 
 $(document).on('page:change', function(){
   returnFormManufacturerListeners();
@@ -34,6 +34,7 @@ var returnFormManufacturerListeners = function(){
           return $.trim( $(this).text() ) == manufacturer;
         }).attr('selected', 'selected');
         $('.modal').modal('hide');
+        $('.alert-msgs').css('opacity', 1);
         $('.alert-msgs').html('<p class="alert alert-success">Manufacturer successfully added.</p>').animate({ opacity: 0 }, 4000)
         showBrandSelect();
       }).fail(function(response){
@@ -48,6 +49,7 @@ var returnFormManufacturerListeners = function(){
       }).done(function(response){
         $('.manufacturer-list').html(response);
         $('.modal').modal('hide');
+        $('.alert-msgs').css('opacity', 1);
         $('.alert-msgs').html('<p class="alert alert-success">Manufacturer successfully updated.</p>').animate({ opacity: 0 }, 4000)
       }).fail(function(response){
         $('.manufacturer-errors').html('<p class="alert alert-danger">Name can\'t be blank</p>');
@@ -121,6 +123,7 @@ var deleteManufacturer = function(){
   $('.manufacturer-list').on('ajax:success', 'a.delete-manufacturer', function(e, data){
     $('.manufacturer-list').html(data);
     $('.brand-list').empty();
+    $('.alert-msgs').css('opacity', 1);
     $('.alert-msgs').html('<p class="alert alert-success">Manufacturer successfully deleted.</p>').animate({ opacity: 0 }, 3000)
   })
   highlightManufacturersBrands();
