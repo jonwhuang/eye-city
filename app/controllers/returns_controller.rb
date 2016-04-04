@@ -9,8 +9,7 @@ class ReturnsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render  pdf: "test",
-                orientation: "Landscape"
+        render  pdf: "test"
       end
     end
   end
