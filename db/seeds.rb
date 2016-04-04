@@ -66,4 +66,6 @@ p = Brand.create(name: "Prodesign") #23
 prodesign.brands << p
 
 #Returns
-Return.create(auth_number: rand(1..999999999), return_date: "16-01-14", frame_count: 2, brand_id: 4, manufacturer_id: 2)
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-14", frame_count: 2, brand_id: 4, manufacturer_id: 2)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-14", frame_count: 2, brand_id: 4, manufacturer_id: 2)

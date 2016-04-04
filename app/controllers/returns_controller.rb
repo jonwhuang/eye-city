@@ -6,7 +6,7 @@ class ReturnsController < ApplicationController
     @manufacturers = Manufacturer.all
     @brands = Brand.all
     @returns = Return.all
-    @outstanding = Return.where(credit_memo_number: "")
+    @outstanding = Return.where("credit_memo_number = '' OR credit_memo_number IS NULL")
   end
 
   def show
