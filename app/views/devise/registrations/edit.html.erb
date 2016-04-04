@@ -1,6 +1,8 @@
-<div class="form-container password-form col-md-offset-4 col-sm-offset-3">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="hr-divider">
+  <h3 class="hr-divider-content">Edit <%= resource_name.to_s.humanize %></h3>
+</div>
 
+<div class="form-container password-form col-md-offset-4 col-sm-offset-3">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
 
