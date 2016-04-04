@@ -3,7 +3,7 @@ class ManufacturersController < ApplicationController
 
   def collection
     manufacturer = Manufacturer.find_by(name: params[:name])
-    @brands = manufacturer.brands
+    @brands = manufacturer.brands.sort_by {|brand| brand.name}
     render 'returns/_brand_select', layout: false
   end
 
@@ -13,7 +13,7 @@ class ManufacturersController < ApplicationController
 
   def show
     @manufacturer = Manufacturer.find(params[:id])
-    @brands = @manufacturer.brands
+    @brands = @manufacturer.brands.sort_by {|brand| brand.name}
 
     if request.xhr?
       render 'brands/_list', layout: false

@@ -3,10 +3,10 @@ class ReturnsController < ApplicationController
 
   def index
     redirect_to new_admin_session_path if !current_admin
-    @manufacturers = Manufacturer.all
-    @brands = Brand.all
-    @returns = Return.all
-    @outstanding = Return.where(credit_memo_number: "")
+    @manufacturers = Manufacturer.all.order(:name)
+    @brands = Brand.all.order(:name)
+    @returns = Return.all.order(:return_date)
+    @outstanding = Return.where("credit_memo_number = '' OR credit_memo_number IS NULL").order(:return_date)
   end
 
   def show

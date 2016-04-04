@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         <% returns.each do |data| %>
-          <% if data.comments == "" %>
+          <% if data.comments == "" || !data.comments %>
             <tr>
           <% else %>
             <tr class="commented">
