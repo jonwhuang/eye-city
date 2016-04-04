@@ -1,5 +1,5 @@
 <%= wicked_pdf_stylesheet_link_tag "pdf" %>
-<h2>Outstanding Returns on <%= Time.now.strftime("%B %d, %Y") %></h2>
+<h2>Pending Returns on <%= Time.now.strftime("%B %d, %Y") %></h2>
 <table class="pdf-table">
   <thead>
     <tr>
@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @outstanding.each do |data| %>
+    <% @pending.each do |data| %>
         <td><%= data.manufacturer.name %></td>
         <td><%= data.brand.name %></td>
         <td><%= data.frame_count %></td>

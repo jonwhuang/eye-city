@@ -10,7 +10,7 @@ class Return < ActiveRecord::Base
     self.credit_memo_number != "" && self.credit_memo_number
   end
 
-  def days_outstanding
+  def days_pending
     (Date.today - self.return_date).to_i
   end
 end
