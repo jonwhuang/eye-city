@@ -26,7 +26,7 @@ class BrandsController < ApplicationController
       if request.xhr?
         manufacturer = Manufacturer.find_by(name: params[:manufacturer])
         @brand.manufacturers << manufacturer
-        @brands = manufacturer.brands
+        @brands = manufacturer.brands.sort_by {|brand| brand.name}
         render 'returns/_brand_select', layout: false
       else
         flash[:notice] = "Brand successfully added"
@@ -40,7 +40,7 @@ class BrandsController < ApplicationController
             render json: @brand.errors, status: :unprocessable_entity
           else
             @existing_brand.manufacturers << manufacturer
-            @brands = manufacturer.brands
+            @brands = manufacturer.brands.sort_by {|brand| brand.name}
             render 'returns/_brand_select', layout: false
           end
         else
@@ -58,7 +58,7 @@ class BrandsController < ApplicationController
     if @brand.update(brand_params)
       if request.xhr?
         manufacturer = Manufacturer.find_by(name: params[:manufacturer])
-        @brands = manufacturer.brands
+        @brands = manufacturer.brands.sort_by {|brand| brand.name}
         render '_list', layout: false
       else
         flash[:notice] = "Brand successfully updated"
@@ -88,7 +88,7 @@ class BrandsController < ApplicationController
         @brand.destroy
       end
 
-      @brands = manufacturer.brands
+      @brands = manufacturer.brands.sort_by {|brand| brand.name}
       render '_list', layout: false
     else
       @brand.destroy

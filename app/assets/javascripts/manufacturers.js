@@ -35,7 +35,7 @@ var returnFormManufacturerListeners = function(){
         }).attr('selected', 'selected');
         $('.modal').modal('hide');
         $('.alert-msgs').css('opacity', 1);
-        $('.alert-msgs').html('<p class="alert alert-success">Manufacturer successfully added.</p>').animate({ opacity: 0 }, 4000)
+        $('.alert-msgs').html('<p class="alert alert-success">Manufacturer successfully added.</p>').animate({ opacity: 0 }, 5000)
         showBrandSelect();
       }).fail(function(response){
         $('.manufacturer-errors').html('<p class="alert alert-danger">Name can\'t be blank</p>');
@@ -50,7 +50,7 @@ var returnFormManufacturerListeners = function(){
         $('.manufacturer-list').html(response);
         $('.modal').modal('hide');
         $('.alert-msgs').css('opacity', 1);
-        $('.alert-msgs').html('<p class="alert alert-success">Manufacturer successfully updated.</p>').animate({ opacity: 0 }, 4000)
+        $('.alert-msgs').html('<p class="alert alert-success">Manufacturer successfully updated.</p>').animate({ opacity: 0 }, 5000)
       }).fail(function(response){
         $('.manufacturer-errors').html('<p class="alert alert-danger">Name can\'t be blank</p>');
       })
@@ -124,7 +124,7 @@ var deleteManufacturer = function(){
     $('.manufacturer-list').html(data);
     $('.brand-list').empty();
     $('.alert-msgs').css('opacity', 1);
-    $('.alert-msgs').html('<p class="alert alert-success">Manufacturer successfully deleted.</p>').animate({ opacity: 0 }, 3000)
+    $('.alert-msgs').html('<p class="alert alert-success">Manufacturer successfully deleted.</p>').animate({ opacity: 0 }, 5000)
   })
   highlightManufacturersBrands();
 }

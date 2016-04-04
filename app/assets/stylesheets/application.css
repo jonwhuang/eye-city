@@ -43,10 +43,6 @@ hr {
   border-bottom: 0;
 }
 
-.return-form label {
-  width: 250px;
-}
-
 div.field_with_errors {
   display: inline-block;
 }

@@ -43,7 +43,7 @@ var returnFormBrandListeners = function(){
         }).attr('selected', 'selected');
         $('.modal').modal('hide');
         $('.alert-msgs').css('opacity', 1);
-        $('.alert-msgs').html('<p class="alert alert-success">Brand successfully added.</p>').animate({ opacity: 0 }, 4000)
+        $('.alert-msgs').html('<p class="alert alert-success">Brand successfully added.</p>').animate({ opacity: 0 }, 5000)
       }).fail(function(response){
         $('.brand-errors').html('<p class="alert alert-danger">Name ' + response.responseJSON.name[0] + '</p>');
       })
@@ -88,7 +88,7 @@ var deleteBrand = function(){
         $('.brand-list').html(response);
       })
       $('.alert-msgs').css('opacity', 1);
-      $('.alert-msgs').html('<p class="alert alert-success">Brand successfully deleted.</p>').animate({ opacity: 0 }, 4000)
+      $('.alert-msgs').html('<p class="alert alert-success">Brand successfully deleted.</p>').animate({ opacity: 0 }, 5000)
       return false;
     } else {
       return false;

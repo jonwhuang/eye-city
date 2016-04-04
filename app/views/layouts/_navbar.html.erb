@@ -1,11 +1,13 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header pull-left">
-      <%= link_to "Eye City Optometry", root_path, class: "navbar-brand navbar-brand-emphasized" %>
+
+      <%= link_to raw('Eye City Optometry <span class="icon icon-home"></span>'), root_path, class: "navbar-brand navbar-brand-emphasized" %>
     </div>
 
     <% if current_admin %>
       <div class="navbar-header pull-right">
+        <%= link_to "My Account", edit_admin_registration_path, class: "navbar-brand" %>
         <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "navbar-brand" %>
       </div>
     <% end %>
