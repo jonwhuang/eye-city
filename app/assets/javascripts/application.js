@@ -26,7 +26,7 @@ $(document).on('page:load', function() {
 var startTablesorter = function(){
   // call the tablesorter plugin
   $("[data-sort=table]").tablesorter({
-    sortList: [[3,0]]
+    sortList: [[4,0]]
   });
 }
 
