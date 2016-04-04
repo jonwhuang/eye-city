@@ -68,4 +68,47 @@ prodesign.brands << p
 #Returns
 Return.create(auth_number: rand(1..999999999), return_date: "2016-01-14", frame_count: 2, brand_id: 4, manufacturer_id: 2)
 
-Return.create(auth_number: rand(1..999999999), return_date: "2016-01-14", frame_count: 2, brand_id: 4, manufacturer_id: 2)
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-12", frame_count: 5, brand_id: 5, manufacturer_id: 2)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-12", frame_count: 13, brand_id: 6, manufacturer_id: 2)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-26", frame_count: 3, brand_id: 7, manufacturer_id: 2)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-26", frame_count: 1, brand_id: 8, manufacturer_id: 2)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-28", frame_count: 6, brand_id: 9, manufacturer_id: 2)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-19", frame_count: 7, brand_id: 15, manufacturer_id: 4)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-19", frame_count: 3, brand_id: 16, manufacturer_id: 4)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-19", frame_count: 5, brand_id: 17, manufacturer_id: 4)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-04", frame_count: 1, brand_id: 18, manufacturer_id: 5)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-04", frame_count: 8, brand_id: 19, manufacturer_id: 5)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-22", frame_count: 1, brand_id: 6, manufacturer_id: 2, comments: "Frame defective warranty for Jones, Bob")
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-01-25", frame_count: 21, brand_id: 10, manufacturer_id: 2)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-02-19", frame_count: 4, brand_id: 4, manufacturer_id: 2)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-02-16", frame_count: 3, brand_id: 20, manufacturer_id: 7)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-02-22", frame_count: 1, brand_id: 13, manufacturer_id: 6)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-02-23", frame_count: 1, brand_id: 14, manufacturer_id: 6)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-02-10", frame_count: 5, brand_id: 21, manufacturer_id: 8)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-03-10", frame_count: 1, brand_id: 4, manufacturer_id: 2, comments: "Frame defective warranty for Horn, James")
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-03-07", frame_count: 1, brand_id: 22, manufacturer_id: 9)
+
+Return.create(auth_number: rand(1..999999999), return_date: "2016-03-14", frame_count: 7, brand_id: 23, manufacturer_id: 10)
+
+Return.create(auth_number: "9923599", return_date: "2016-03-10", frame_count: 3, brand_id: 2, manufacturer_id: 1)
+
+Return.create(auth_number: "9923599", return_date: "2016-03-10", frame_count: 1, brand_id: 3, manufacturer_id: 1)
+
