@@ -7,7 +7,7 @@ class Return < ActiveRecord::Base
   validates :frame_count, numericality: { greater_than_or_equal_to: 1 }
 
   def credited?
-    self.credit_memo_number != ""
+    self.credit_memo_number != "" && self.credit_memo_number
   end
 
   def days_outstanding

@@ -18,11 +18,11 @@
 
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
-    <% if @return.comments != "" %>
-      <div class="hr-divider m-t">
+    <% if @return.comments != "" && @return.comments %>
+      <div class="hr-divider m-t m-b">
         <h3 class="hr-divider-content hr-divider-heading">Notes</h3>
       </div>
-      <p><%= @return.comments %></p>
+      <p class="text-center"><%= @return.comments %></p>
     <% end %>
   </div>
 </div>
