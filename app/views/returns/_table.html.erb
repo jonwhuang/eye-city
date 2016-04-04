@@ -23,9 +23,13 @@
             <td><%= data.brand.name %></td>
             <td><%= data.frame_count %></td>
             <td><%= link_to data.auth_number, return_path(data), class: "return-details" %></td>
-            <td><%= data.return_date %></td>
+            <td><%= data.return_date.strftime("%m-%d-%Y") %></td>
             <td><%= data.credit_memo_number %></td>
-            <td><%= data.credit_date %></td>
+            <% if data.credited? %>
+              <td><%= data.credit_date.strftime("%m-%d-%Y") %></td>
+            <% else %>
+              <td><%= data.credit_date %></td>
+            <% end %>
             <td>
               <%= link_to edit_return_path(data) do %>
                 <span class="icon icon-pencil"></span>

@@ -4,9 +4,8 @@
     <h3 class="dashhead-title">Returns Overview</h3>
   </div>
   <div class="pull-right">
-    <div class="btn-group">
-      <%= link_to raw("<span class='icon icon-circle-with-plus'></span> New Return"), new_return_path, class: "btn btn-primary-outline" %>
-    </div>
+    <%= link_to raw("<span class='icon icon-circle-with-plus'></span> New Return"), new_return_path, class: "btn btn-primary-outline" %>
+    <%= link_to 'Export PDF', returns_path(:format => :pdf), {target: "_blank", class: "btn btn-primary-outline"} %>
   </div>
 </div>
 
@@ -27,6 +26,7 @@
     <option><%= brand.name %></option>
   <% end %>
 </select>
+
 
 <ul class="nav nav-bordered m-b-0 return-tabs" role="tablist">
   <li role="presentation">

@@ -1,12 +1,17 @@
 class ReturnsController < ApplicationController
-  before_action :authenticate_admin!, except: [:index]
+  before_action :authenticate_admin!
 
   def index
-    redirect_to new_admin_session_path if !current_admin
     @manufacturers = Manufacturer.all.order(:name)
     @brands = Brand.all.order(:name)
     @returns = Return.all.order(:return_date)
     @outstanding = Return.where("credit_memo_number = '' OR credit_memo_number IS NULL").order(:return_date)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: "returns"
+      end
+    end
   end
 
   def show
