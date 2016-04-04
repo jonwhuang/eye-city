@@ -9,7 +9,7 @@ class ReturnsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render  pdf: "test"
+        render  pdf: "returns"
       end
     end
   end
