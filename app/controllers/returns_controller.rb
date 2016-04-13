@@ -27,6 +27,7 @@ class ReturnsController < ApplicationController
 
   def edit
     @return = Return.find(params[:id])
+    @brands = Manufacturer.find(@return.manufacturer_id).brands
   end
 
   def create
