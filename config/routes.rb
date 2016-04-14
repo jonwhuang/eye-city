@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :brands
   resources :returns
 
+  get '/reset_password' => 'admin#reset'
   get '/collection' => 'manufacturers#collection'
   get '/filter' => 'returns#filter'
 end

@@ -8,8 +8,14 @@
       <div class="form-group manufacturer-select">
         <%= render 'manufacturer_select' %>
       </div>
-      <div class="form-group brand-select">
-      </div>
+      <% if @return.brand_id %>
+        <div class="form-group brand-select">
+          <%= render 'brand_select', brands: @brands %>
+        </div>
+      <% else %>
+        <div class="form-group brand-select">
+        </div>
+      <% end %>
       <div class="form-group">
         <%= f.label :frame_count, '*Frame Count' %>
         <%= f.number_field :frame_count, step: 1 %>
