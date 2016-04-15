@@ -3,7 +3,7 @@
      <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
    </head>
    <body>
-     <h2>Pending Returns This Month</h2>
+     <h2>Pending Returns as of <%= Date.today.strftime("%b %d, %Y") %></h2>
        <% @pending.each do |data| %>
         <p>
           <%= data.return_date.strftime("%m-%d-%Y") %> | <%= data.auth_number %> - <%= data.brand.name %> | <%= data.manufacturer.name %>: <%= data.frame_count %> Frames
