@@ -1,0 +1,13 @@
+ <html>
+   <head>
+     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+   </head>
+   <body>
+     <h1>Pending Returns This Month</h1>
+       <% @pending.each do |data| %>
+        <p>
+          <%= data.return_date.strftime("%m-%d-%Y") %> | <%= data.auth_number %> - <%= data.brand.name %> | <%= data.manufacturer.name %>: <%= data.frame_count %> Frames
+        </p>
+       <% end %>
+   </body>
+ </html>
