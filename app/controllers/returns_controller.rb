@@ -6,7 +6,7 @@ class ReturnsController < ApplicationController
     @brands = Brand.all.order(:name)
     @returns = Return.all.order(:return_date)
     @pending = Return.where("credit_memo_number = '' OR credit_memo_number IS NULL").order(:return_date)
-    AdminMailer.monthly_update.deliver
+    # AdminMailer.monthly_update.deliver
     respond_to do |format|
       format.html
       format.pdf do
