@@ -1,6 +1,6 @@
 set :environment, 'development'
 
-every 1.minute do
+every '0 0 1 * *' do
   command "bundle"
   rake "report:monthly_update"
 end
