@@ -41,6 +41,7 @@ var returnFormManufacturerListeners = function(){
         $('.manufacturer-errors').html('<p class="alert alert-danger">Name can\'t be blank</p>');
       })
     } else {
+      console.log($(this))
       var url = $(this).attr('action');
       $.ajax({
         method: 'PUT',
@@ -48,9 +49,11 @@ var returnFormManufacturerListeners = function(){
         data: data
       }).done(function(response){
         $('.manufacturer-list').html(response);
+        console.log(url);
         $('.modal').modal('hide');
         $('.alert-msgs').css('opacity', 1);
         $('.alert-msgs').html('<p class="alert alert-success">Manufacturer successfully updated.</p>').animate({ opacity: 0 }, 5000)
+        $('.brand-list').empty();
       }).fail(function(response){
         $('.manufacturer-errors').html('<p class="alert alert-danger">Name can\'t be blank</p>');
       })
