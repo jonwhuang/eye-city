@@ -51,3 +51,13 @@ div.field_with_errors {
   vertical-align: top;
   height: 30px;
 }
+
+.main-header {
+  font-size: 25px;
+  color: #1CA8DD;
+}
+
+.nav .open > a:focus {
+  background-color: transparent;
+}
+
