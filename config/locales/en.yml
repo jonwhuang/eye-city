@@ -21,3 +21,14 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      return:
+        auth_number: "Return authorization number"
+        return_date: "Return authorization date"
+    errors:
+      models:
+        return:
+          attributes:
+            frame_count:
+              not_a_number: "must be greater than or equal to 1"
