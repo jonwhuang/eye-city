@@ -37,6 +37,7 @@ class ReturnsController < ApplicationController
       flash[:notice] = "Return successfully created"
       redirect_to returns_path
     else
+      @brands = Manufacturer.find(params["return"]["manufacturer_id"]).brands if params["return"]["manufacturer_id"] != ""
       render 'new'
     end
   end
@@ -48,6 +49,7 @@ class ReturnsController < ApplicationController
       flash[:notice] = "Return successfully updated"
       redirect_to returns_path
     else
+      @brands = Manufacturer.find(params["return"]["manufacturer_id"]).brands if params["return"]["manufacturer_id"] != ""
       render 'edit'
     end
   end
