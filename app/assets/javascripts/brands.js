@@ -59,7 +59,7 @@ var returnFormBrandListeners = function(){
         $('.brand-list').html(response);
         $('.modal').modal('hide');
         $('.alert-msgs').css('opacity', 1);
-        $('.alert-msgs').html('<p class="alert alert-success">Brand successfully updated.</p>').animate({ opacity: 0 })
+        $('.alert-msgs').html('<p class="alert alert-success">Brand successfully updated.</p>').animate({ opacity: 0 }, 5000)
       }).fail(function(response){
         $('.brand-errors').html('<p class="alert alert-danger">Name ' + response.responseJSON.name[0] + '</p>');
       })
