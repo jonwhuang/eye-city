@@ -8,16 +8,22 @@
                             <span class="text-muted">Returns <b class="caret"></b></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <%= link_to 'Home', root_path %>
-                        </li>
-                        <li>
-                            <%= link_to "My Account", edit_admin_registration_path %>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
-                        </li>
+                        <% if current_admin %>
+                            <li>
+                                <%= link_to 'Home', root_path %>
+                            </li>
+                            <li>
+                                <%= link_to "My Account", edit_admin_registration_path %>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+                            </li>
+                        <% else %>
+                            <li>
+                                <%= link_to 'Login', new_admin_session_path %>
+                            </li>
+                        <% end %>
                     </ul>
                 </div>
             </li>
