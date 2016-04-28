@@ -14,4 +14,9 @@ FactoryGirl.define do
     manufacturer_id 1
     frame_count 1
   end
+
+  factory :admin, class: Admin do
+    email "jonwhuang@gmail.com"
+    password "12345678"
+  end
 end
