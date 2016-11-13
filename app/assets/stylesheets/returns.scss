@@ -21,3 +21,15 @@ textarea {
 .return-form label {
   width: 250px;
 }
+
+.tablesorter-pager .disabled {
+  visibility: hidden;
+}
+
+.prev {
+  margin-right: 5px;
+}
+
+.next {
+  margin-left: 5px;
+}

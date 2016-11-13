@@ -25,8 +25,21 @@ $(document).on('page:change', function(){
 
 var startTablesorter = function(){
   // call the tablesorter plugin
-  $("[data-sort=table]").tablesorter({
+  $(".all-table").tablesorter({
     sortList: [[4,0]]
+  }).tablesorterPager({
+    container: $('#all-pager'),
+    size: 20,
+    output: '{page}/{totalPages} Pages'
+  });
+
+  $(".pending-table").tablesorter({
+    sortList: [[4,0]]
+  }).tablesorterPager({
+    container: $('#pending-pager'),
+    size: 20,
+    output: '{page}/{totalPages} Pages'
   });
 }
+
 
