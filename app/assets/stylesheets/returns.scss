@@ -28,8 +28,14 @@ textarea {
 
 .prev {
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .next {
   margin-left: 5px;
+  cursor: pointer;
+}
+
+.tablesorter-header {
+  cursor: pointer;
 }
