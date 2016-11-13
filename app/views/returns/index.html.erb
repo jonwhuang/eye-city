@@ -44,11 +44,25 @@
 
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane" id="all">
-    <%= render 'table', returns: @returns %>
+    <%= render 'table', returns: @returns, table_class: 'all-table' %>
+    <div id="all-pager" class="pager">
+      <form>
+        <span class="prev icon icon-controller-fast-backward"/></span>
+        <span class="pagedisplay"></span> <!-- this can be any element, including an input -->
+        <span class="next icon icon-controller-fast-forward"/></span>
+      </form>
+    </div>
   </div>
 
   <div role="tabpanel" class="tab-pane active" id="pending">
-    <%= render 'table', returns: @pending %>
+    <%= render 'table', returns: @pending, table_class: 'pending-table' %>
+    <div id="pending-pager" class="pager">
+      <form>
+        <span class="prev icon icon-controller-fast-backward"/></span>
+        <span class="pagedisplay"></span> <!-- this can be any element, including an input -->
+        <span class="next icon icon-controller-fast-forward"/></span>
+      </form>
+    </div>
   </div>
 
   <div role="tabpanel" class="tab-pane" id="filter">
