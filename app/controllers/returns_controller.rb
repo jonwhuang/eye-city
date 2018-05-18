@@ -11,6 +11,7 @@ class ReturnsController < ApplicationController
       format.pdf do
         render  pdf: "returns"
       end
+      format.xls { send_data @returns.to_csv(col_sep: "\t") }
     end
   end
 

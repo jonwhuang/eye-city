@@ -13,4 +13,23 @@ class Return < ActiveRecord::Base
   def days_pending
     (Date.today - self.return_date).to_i
   end
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << ["Manufacturer", "Brand", "Frame Count", "RA Number", "RA Date", "CM Number", "CM Date", "Notes"]
+      all.order(:return_date).each do |entry|
+        csv << [
+          entry.manufacturer.name,
+          entry.brand.name,
+          entry.frame_count,
+          entry.auth_number,
+          entry.return_date.try(:strftime, '%m-%d-%Y'),
+          entry.credit_memo_number,
+          entry.credit_date.try(:strftime, '%m-%d-%Y'),
+          entry.comments
+        ]
+      end
+    end
+  end
+
 end
