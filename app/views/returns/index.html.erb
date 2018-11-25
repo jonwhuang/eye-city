@@ -68,12 +68,13 @@
 
   <div role="tabpanel" class="tab-pane active" id="pending">
     <%= render 'table', returns: @pending, table_class: 'pending-table' %>
-    <div id="pending-pager" class="pager">
+    <div id="pending-pager" class="pager flex flex-row justify-flex-center">
       <form>
         <span class="prev icon icon-controller-fast-backward"/></span>
         <span class="pagedisplay"></span> <!-- this can be any element, including an input -->
         <span class="next icon icon-controller-fast-forward"/></span>
       </form>
+      <select class="gotoPage ml-10" title="Select page number">
     </div>
   </div>
 
