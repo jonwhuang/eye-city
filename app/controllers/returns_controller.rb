@@ -1,3 +1,5 @@
+require 'csv'
+
 class ReturnsController < ApplicationController
   before_action :authenticate_admin!
 
@@ -72,6 +74,36 @@ class ReturnsController < ApplicationController
     end
 
     render '_table', layout: false, locals: {returns: @returns, table_class: 'filtered-table'}
+  end
+
+  def import
+    number_of_returns = 0
+
+    CSV.foreach(params[:file].path, headers: true) do |row|
+      return_hash = row.to_hash
+
+      manufacturer = Manufacturer.find_or_create_by(name: return_hash["Manufacturer"])
+      brand = Brand.find_or_create_by(name: return_hash["Brand"])
+
+      manufacturer.brands << brand unless manufacturer.brands.exists?(brand.id)
+
+      return_ar = Return.new(
+        auth_number: return_hash["RA Number"],
+        return_date: Date.strptime(return_hash["RA Date"], '%m-%d-%Y').to_s,
+        credit_date: return_hash["CM Date"] && Date.strptime(return_hash["CM Date"], '%m-%d-%Y').to_s,
+        credit_memo_number: return_hash["CM Number"],
+        brand_id: brand.id,
+        manufacturer_id: manufacturer.id,
+        frame_count: return_hash["Frame Count"],
+        comments: return_hash["Notes"]
+      )
+
+      number_of_returns += 1 if return_ar.save
+    end
+
+    flash[:notice] = "#{number_of_returns} returns successfully imported"
+
+    redirect_to returns_path
   end
 
   private

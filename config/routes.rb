@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get '/reset_password' => 'admin#reset'
   get '/collection' => 'manufacturers#collection'
   get '/filter' => 'returns#filter'
+  post '/import' => 'returns#import'
 end
