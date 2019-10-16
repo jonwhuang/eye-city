@@ -39,6 +39,7 @@
   <% end %>
 </select>
 
+<%= render 'layouts/modal' %>
 
 <ul class="nav nav-bordered m-b-0 return-tabs" role="tablist">
   <li role="presentation">
@@ -55,6 +56,8 @@
 <hr class="m-t-0 m-b-0">
 
 <div class="tab-content">
+  <div role="tabpanel" class="tab-pane" id="filter">
+  </div>
   <div role="tabpanel" class="tab-pane" id="all">
     <%= render 'table', returns: @returns, table_class: 'all-table' %>
     <div id="all-pager" class="pager">
@@ -65,7 +68,6 @@
       </form>
     </div>
   </div>
-
   <div role="tabpanel" class="tab-pane active" id="pending">
     <%= render 'table', returns: @pending, table_class: 'pending-table' %>
     <div id="pending-pager" class="pager flex flex-row justify-flex-center">
@@ -77,9 +79,4 @@
       <select class="gotoPage ml-10" title="Select page number">
     </div>
   </div>
-
-  <div role="tabpanel" class="tab-pane" id="filter">
-  </div>
 </div>
-
-<%= render 'layouts/modal', layout: false %>
